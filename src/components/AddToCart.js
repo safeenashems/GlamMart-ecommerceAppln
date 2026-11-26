@@ -1,5 +1,5 @@
 // AddToCart.js
-import React, { useState } from 'react';
+//import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import cartIcon from '../Assets/cart_icon.png';
 const AddToCart = ({ cart }) => {

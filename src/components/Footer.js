@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa'; 
 function Footer() {
+  const emailRef = useRef(null);
+
+  const handleFooterClick = () => {
+    if (emailRef.current) {
+      emailRef.current.focus();
+      console.log("Email input is now focused!"); 
+       }
+  };
   return (
-    <footer className="footer" id="Footer">
+    <footer className="footer" id="Footer" onClick={handleFooterClick}>
       <div className="footer-container">
       
         {/* Customer Support */}
         <div className="footer-section">
-          <h4>Customer Service</h4>
+          <h2>Customer Service</h2>
           <ul>
             <li>📞  +00248 2606060</li>
             <li>✉️ support@glammart.com</li>
@@ -17,7 +25,7 @@ function Footer() {
 
         {/* Quick Links */}
         <div className="footer-section">
-          <h4>Quick Links</h4>
+          <h2>Quick Links</h2>
           <ul>
             <li><a href="/home">Home</a></li>
             <li><a href="/new-arrivals">New Arrivals</a></li>
@@ -28,7 +36,7 @@ function Footer() {
 
         {/* Policies */}
         <div className="footer-section">
-          <h4>Company Info</h4>
+          <h2>Company Info</h2>
           <ul>
             <li><a href="/about-us">About Us</a></li>
             <li><a href="/careers">Careers</a></li>
@@ -39,9 +47,9 @@ function Footer() {
 
         {/* Newsletter and Social Links */}
         <div className="footer-section">
-          <h4>Stay Connected</h4>
+          <h2>Stay Connected</h2>
           <p style={{ marginBottom: "0px" }}>Join our mailing list for exclusive discounts and offers.</p>
-          <input type="email" placeholder="Enter your email" className="newsletter-input"/>
+          <input type="email" placeholder="Enter your email" className="newsletter-input"  ref={emailRef} />
           <button className="newsletter-button">Subscribe</button>
         </div>
         

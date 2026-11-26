@@ -2,7 +2,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import ProductList from "./ProductList";
+//import Recipes from "./ProductList";
 
 
 const CategoryCarousel = ({ selectedCategory, onCategoryChange }) => {
@@ -32,8 +32,8 @@ const CategoryCarousel = ({ selectedCategory, onCategoryChange }) => {
 
                 const categoryList = [
                     ...category.slice(0, 2),        // Take first 2
-                    ...category.slice(7, 10),       // Take 3 (skip 5, take 3)
-                    ...category.slice(12, 13),      // Take 1 (skip 2, take 1)
+                    ...category.slice(7, 10),       //  (skip 5, take 3)
+                    ...category.slice(12, 13),      // (skip 2, take 1)
                     ...category.slice(15,16), 
                     ...category.slice(19)         // Take rest (skip 3)
                   ];

@@ -1,5 +1,5 @@
 //import AboutImg from '../Assets/About section.png';
-import { Form } from 'react-router-dom';
+//import { Form } from 'react-router-dom';
 import ImgA from '../Assets/welcome-about.png';
 import ImgB  from '../Assets/Screenshot 2025-01-18 232137.png';
 import ImgC from '../Assets/our mission-about.png';
@@ -17,12 +17,13 @@ function About() {
                     </div>
             </div>
 
-            <div className="about-divs">
-                    <div className="about-imgDiv">
-                        <img src={ImgB}  alt="About Us" className="about-image" />
-                    </div>
+            <div className="about-div2">
+                    
                     <div className="about-contentDiv">
                         <h3>Our Philosophy: Empowering Your Unique Style.</h3><p>At GlamMart, we believe in empowering individuals to express their unique style effortlessly. Our carefully selected range includes top-quality skincare, fragrances, jewelry, apparel, and more, ensuring something special for every occasion and personality.</p>
+                    </div>
+                    <div className="about-imgDiv">
+                        <img src={ImgB}  alt="About Us" className="about-image" />
                     </div>
             </div>
 

@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import ProductsDetails from './ProductsDetails'
+//import ProductsDetails from './ProductsDetails'
 
 function ProductList(props){
    // const {  data } = props;

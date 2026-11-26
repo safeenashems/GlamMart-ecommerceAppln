@@ -1,26 +1,3 @@
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
 
 // export default App;
 import { useState } from 'react';
@@ -38,11 +15,8 @@ import ViewCartProducts from './components/ViewCartProducts';
 function App(){
     const [cart, setCart] = useState([]); // Shared cart state
 
-    //  // Function to add products to the cart
-    //  const handleAddToCart = (product) => {
-    //     setCart((prevCart) => [...prevCart, product]);
-    // };
-//     // Function to add products to the cart
+
+  // Function to add products to the cart
 
     // Increment the quantity of a product in the cart
 const handleIncrement = (productId) => {
@@ -100,10 +74,7 @@ const handleAddToCart = (product) => {
             <Header /> <About /> <Body />
             </> 
         }/>  
-             {/* <Route path='/' element={<Header/>} />                     
-             <Route path='about' element={<About/>} />
-             <Route path='body' element={ <Body/> } />                 
-             <Route path='contact' element={ <Footer/> } /> */}    
+             
              
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />

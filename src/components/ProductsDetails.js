@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
-import Navbar from "./Navbar";
+//import Navbar from "./Navbar";
 
 function ProductsDetails({ handleAddToCart, cart }) {
 
@@ -15,7 +15,7 @@ function ProductsDetails({ handleAddToCart, cart }) {
     fetch(`https://dummyjson.com/products/${id}`)
     .then(res=>res.json())
     .then(data=>setDetails(data))
-  },[]);
+  },[id]);
   
 
   const handleAddProductToCart = () => {
@@ -31,7 +31,7 @@ function ProductsDetails({ handleAddToCart, cart }) {
     {/* <Navbar cart={cart} /> */}
     <div className="cardDetails">
        <div className="image-div">
-            <img src={Details.thumbnail}></img>
+            <img src={Details.thumbnail}alt="product"></img>
         </div>
         <div className="pdtDetails">
       <h2>{Details.title}</h2>

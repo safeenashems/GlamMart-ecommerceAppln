@@ -21,7 +21,7 @@ const ViewCartProducts = ({ cart, handleIncrement, handleDecrement  }) => {
                                     src={item.thumbnail} 
                                     alt={item.title} 
                                     className="cart-item-image" 
-                                    style={{ width: '25vw', height: '25vh', objectFit: 'cover' }}
+                                    style={{ width: '30vw', height: '33vh',  objectFit: 'cover',margin:'2vw' }}
                                 />
                                 <div className="cart-item-details">
                                     <h3>{item.title}</h3>

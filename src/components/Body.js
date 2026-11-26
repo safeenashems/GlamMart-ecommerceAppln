@@ -1,12 +1,13 @@
 
 //fetching api directly
 import ProductList from './ProductList';
-import AddToCart from './AddToCart'; // Import AddToCart component
+//import AddToCart from './AddToCart'; // Import AddToCart component
 import { useState, useEffect } from 'react';
 import CategoryCarousel from './CategoryCarousel'; // Import the CategoryCarousel component
 
 function Body({ handleAddToCart }) {
     const [data, setData] = useState([]);
+    const [filteredData, setFilteredData] = useState([]); // Stores filtered results
     const [searchText, setSearchText] = useState("");
      const [selectedCategory, setSelectedCategory] = useState("all");
     const [loading, setLoading] = useState(true);
@@ -18,7 +19,9 @@ function Body({ handleAddToCart }) {
           const fetchProducts = async () => {
             setLoading(true);
             try {
-                // let url = "https://dummyjson.com/products"; // Default endpoint
+                let combinedProducts = [];
+
+                if (selectedCategory === "all") {
                 const beautyResponse = await fetch('https://dummyjson.com/products/category/beauty');
                 const fragranceResponse = await fetch('https://dummyjson.com/products/category/fragrances');
                 const skinCareResponse = await fetch('https://dummyjson.com/products/category/skin-care');
@@ -30,18 +33,15 @@ function Body({ handleAddToCart }) {
                 const sunglassesData = await sunglassesResponse.json();
 
                 const combinedProducts = [ ...beautyData.products,...fragranceData.products,...skinCareData.products,...sunglassesData.products];
-                setData(combinedProducts);// Set initial filtered data to all products
-              
-              // If selected category is not "all", fetch the products for the selected category
-              if (selectedCategory !== "all") {
-              let  url = `https://dummyjson.com/products/category/${selectedCategory}`;
-                const response = await fetch(url);
+            } else {
+                const response = await fetch(`https://dummyjson.com/products/category/${selectedCategory}`);
                 const result = await response.json();
-                setData(result.products);
-               // console.log("set data:",result);
-                
-              } 
-               // setIsLoading(false);
+                combinedProducts = result.products;
+            }
+                setData(combinedProducts);// Set initial filtered data to all products
+                setFilteredData(combinedProducts); // Store unfiltered data for search
+                setShowFilterButton(selectedCategory !== "all");
+               // console.log("set data:",combinedProducts);
             } catch (error) {
                 console.error('Error fetching products:', error);
             }finally {
@@ -67,12 +67,17 @@ function Body({ handleAddToCart }) {
             product.description.toLowerCase().includes(searchLower) ||
             product.price.toString().includes(searchLower)
            );
-        setData(searchedProducts);
+           setFilteredData(searchedProducts);
     };
 
     if (loading) {
         // Show a loading message or spinner while data is being fetched
-        return <p>Loading products...</p>;
+        return(
+            <div className="loading-container">
+            <div className="loader"></div>
+            <p>Loading products...</p>
+        </div>
+    );
       }
   
     return (

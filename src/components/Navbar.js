@@ -1,5 +1,5 @@
 import logo from '../Assets/logo.png';
-import cartIcon from '../Assets/cart_icon.png'; // Import your cart icon image
+//import cartIcon from '../Assets/cart_icon.png'; // Import your cart icon image
 import AddToCart from './AddToCart';
 import { Link } from 'react-router-dom';
 
