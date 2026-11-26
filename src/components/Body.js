@@ -32,7 +32,7 @@ function Body({ handleAddToCart }) {
                 const skinCareData = await skinCareResponse.json();
                 const sunglassesData = await sunglassesResponse.json();
 
-                const combinedProducts = [ ...beautyData.products,...fragranceData.products,...skinCareData.products,...sunglassesData.products];
+                 combinedProducts = [ ...beautyData.products,...fragranceData.products,...skinCareData.products,...sunglassesData.products];
             } else {
                 const response = await fetch(`https://dummyjson.com/products/category/${selectedCategory}`);
                 const result = await response.json();
@@ -108,7 +108,7 @@ function Body({ handleAddToCart }) {
 
      {/* Pass cart state and handleAddToCart to ProductList */}
             <div className="items">
-                {data.map(product => (
+                {filteredData.map(product => (
                     <ProductList key={product.id}  data={product}  handleAddToCart={handleAddToCart} />
                 ))}
             </div>
